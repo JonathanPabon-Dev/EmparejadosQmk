@@ -1,0 +1,102 @@
+[
+  {
+    "_id": 1,
+    "nombre": "Hidrógeno",
+    "simbolo": "H"
+  },
+  {
+    "_id": 2,
+    "nombre": "Helio",
+    "simbolo": "He"
+  },
+  {
+    "_id": 3,
+    "nombre": "Litio",
+    "simbolo": "Li"
+  },
+  {
+    "_id": 4,
+    "nombre": "Berilio",
+    "simbolo": "Be"
+  },
+  {
+    "_id": 5,
+    "nombre": "Boro",
+    "simbolo": "B"
+  },
+  {
+    "_id": 6,
+    "nombre": "Carbono",
+    "simbolo": "C"
+  },
+  {
+    "_id": 7,
+    "nombre": "Nitrógeno",
+    "simbolo": "N"
+  },
+  {
+    "_id": 8,
+    "nombre": "Oxígeno",
+    "simbolo": "O"
+  },
+  {
+    "_id": 9,
+    "nombre": "Flúor",
+    "simbolo": "F"
+  },
+  {
+    "_id": 10,
+    "nombre": "Neón",
+    "simbolo": "Ne"
+  },
+  {
+    "_id": 11,
+    "nombre": "Sodio",
+    "simbolo": "Na"
+  },
+  {
+    "_id": 12,
+    "nombre": "Magnesio",
+    "simbolo": "Mg"
+  },
+  {
+    "_id": 13,
+    "nombre": "Aluminio",
+    "simbolo": "Al"
+  },
+  {
+    "_id": 14,
+    "nombre": "Silicio",
+    "simbolo": "Si"
+  },
+  {
+    "_id": 15,
+    "nombre": "Fósforo",
+    "simbolo": "P"
+  },
+  {
+    "_id": 16,
+    "nombre": "Azufre",
+    "simbolo": "S"
+  },
+  {
+    "_id": 17,
+    "nombre": "Cloro",
+    "simbolo": "Cl"
+  },
+  {
+    "_id": 18,
+    "nombre": "Argón",
+    "simbolo": "Ar"
+  },
+  {
+    "_id": 19,
+    "nombre": "Potasio",
+    "simbolo": "K"
+  },
+  {
+    "_id": 20,
+    "nombre": "Calcio",
+    "simbolo": "Ca"
+  }
+]
