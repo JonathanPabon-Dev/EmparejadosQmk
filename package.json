@@ -1,7 +1,11 @@
 {
   "name": "emparejadosqmk",
+  "author": {
+    "name": "JonathanP",
+    "url": "https://jonathanpabon-dev.github.io/JPdev/"
+  },
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
