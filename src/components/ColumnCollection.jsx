@@ -12,14 +12,14 @@ const ColumnCollection = ({
       <ul className="flex flex-col gap-4">
         {itemsList.map((item, index) => {
           const itemState = itemStateList.find(
-            (stateItem) => stateItem.id === item.id,
+            (stateItem) => stateItem.id === item._id,
           );
           const state = itemState ? itemState.state : null;
 
           return (
             <li key={index}>
-              <Card itemId={item.id} onSelect={onSelect} itemState={state}>
-                {column === "B" ? item.columnB : item.columnA}
+              <Card itemId={item._id} onSelect={onSelect} itemState={state}>
+                {column === "B" ? item.simbolo : item.nombre}
               </Card>
             </li>
           );

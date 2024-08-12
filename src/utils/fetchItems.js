@@ -1,7 +1,10 @@
-import itemsFile from "../json/items.json";
+const apiUrl = "https://qmkadmindb.onrender.com/api";
 
-const fetchItems = (cantity) => {
+export const fetchItems = async (cantity) => {
   try {
+    const response = await fetch(`${apiUrl}/elementos`);
+    const data = await response.json();
+    const itemsFile = data.data;
     const items = [];
     const itemsLength = itemsFile.length;
     const indices = new Set();
@@ -20,5 +23,3 @@ const fetchItems = (cantity) => {
     console.log(error);
   }
 };
-
-export default fetchItems;

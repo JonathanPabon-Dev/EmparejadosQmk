@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import fetchItems from "../utils/fetchItems";
+import { fetchItems } from "../utils/fetchItems";
 import shuffleArray from "../utils/shuffleArray";
 import { listInitialState, listItemState } from "../utils/listState";
 import ColumnCollection from "./ColumnCollection";
 import Counter from "./Counter";
 
 const PairCollection = () => {
+  const total = 5;
   const [correct, setCorrect] = useState(0);
-  const [total, setTotal] = useState(0);
   const [columnAitems, setColumnAitems] = useState([]);
   const [columnBitems, setColumnBitems] = useState([]);
   const [idA, setIdA] = useState(null);
@@ -15,6 +15,18 @@ const PairCollection = () => {
   const [itemListA, setItemListA] = useState([]);
   const [itemListB, setItemListB] = useState([]);
   const [showRestart, setShowRestart] = useState(false);
+
+  async function getItems() {
+    const initialItems = await fetchItems(total);
+
+    const shuffledItems = shuffleArray([...initialItems]);
+
+    setItemListA(listInitialState(initialItems, "none"));
+    setItemListB(listInitialState(shuffledItems, "none"));
+
+    setColumnAitems(initialItems);
+    setColumnBitems(shuffledItems);
+  }
 
   const handleReset = () => {
     setCorrect(0);
@@ -59,17 +71,9 @@ const PairCollection = () => {
 
   useEffect(() => {
     if (!showRestart) {
-      setTotal(10);
-      const initialItems = fetchItems(total);
-      const shuffledItems = shuffleArray([...initialItems]);
-
-      setItemListA(listInitialState(initialItems, "none"));
-      setItemListB(listInitialState(shuffledItems, "none"));
-
-      setColumnAitems(initialItems);
-      setColumnBitems(shuffledItems);
+      getItems();
     }
-  }, [total, showRestart]);
+  }, [showRestart]);
 
   useEffect(() => {
     if (idA && idB) {
