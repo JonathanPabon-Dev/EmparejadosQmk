@@ -22,7 +22,7 @@ const Card = ({ itemId, itemState, onSelect, children }) => {
             ? "pointer-events-none border-green-500 bg-green-500 text-white"
             : state === "incorrect"
               ? "pointer-events-none border-red-600 bg-red-600 text-white"
-              : "border-slate-300"
+              : "border-slate-300 bg-white"
       } cursor-pointer p-5 text-center text-lg hover:border-sky-200`}
       onClick={handleClick}
     >
