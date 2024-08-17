@@ -2,7 +2,7 @@ const apiUrl = "https://qmkadmindb.onrender.com/api";
 
 export const fetchItems = async (cantity) => {
   try {
-    const response = await fetch(`${apiUrl}/elementos`);
+    const response = await fetch(`${apiUrl}/items`);
     const data = await response.json();
     const itemsFile = data.data;
     const items = [];

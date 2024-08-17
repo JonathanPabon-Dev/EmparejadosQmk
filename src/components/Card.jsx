@@ -15,7 +15,7 @@ const Card = ({ itemId, itemState, onSelect, children }) => {
 
   return (
     <div
-      className={`rounded-xl border-2 ${
+      className={`cursor-pointer rounded-xl border-2 p-5 text-center text-lg hover:border-sky-200 ${
         state === "selected"
           ? "border-sky-500 bg-sky-500 text-white"
           : state === "correct"
@@ -23,7 +23,7 @@ const Card = ({ itemId, itemState, onSelect, children }) => {
             : state === "incorrect"
               ? "pointer-events-none border-red-600 bg-red-600 text-white"
               : "border-slate-300 bg-white"
-      } cursor-pointer p-5 text-center text-lg hover:border-sky-200`}
+      } `}
       onClick={handleClick}
     >
       {children}
@@ -32,7 +32,7 @@ const Card = ({ itemId, itemState, onSelect, children }) => {
 };
 
 Card.propTypes = {
-  itemId: PropTypes.number,
+  itemId: PropTypes.string,
   itemState: PropTypes.oneOf(["none", "selected", "correct", "incorrect"]),
   onSelect: PropTypes.func,
   children: PropTypes.node,

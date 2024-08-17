@@ -19,7 +19,7 @@ const ColumnCollection = ({
           return (
             <li key={index}>
               <Card itemId={item._id} onSelect={onSelect} itemState={state}>
-                {column === "B" ? item.simbolo : item.nombre}
+                {column === "B" ? item.value2 : item.value1}
               </Card>
             </li>
           );
