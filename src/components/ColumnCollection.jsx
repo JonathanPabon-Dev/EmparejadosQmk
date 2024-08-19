@@ -9,7 +9,7 @@ const ColumnCollection = ({
 }) => {
   return (
     <>
-      <ul className="flex flex-col gap-4">
+      <ul className="flex flex-col gap-5">
         {itemsList.map((item, index) => {
           const itemState = itemStateList.find(
             (stateItem) => stateItem.id === item._id,

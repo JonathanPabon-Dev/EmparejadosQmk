@@ -84,7 +84,7 @@ const PairCollection = () => {
   return (
     <>
       <Counter correct={correct} total={total} />
-      <div className="container mt-5 flex w-[60%] justify-between">
+      <div className="container mt-5 flex w-[60%] justify-between gap-20">
         <ColumnCollection
           itemsList={columnAitems}
           onSelect={handleSelectA}
