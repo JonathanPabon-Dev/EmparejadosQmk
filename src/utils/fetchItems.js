@@ -1,10 +1,9 @@
-const apiUrl = "https://qmkadmindb.onrender.com/api";
+import supabase from "../supabase/client";
 
 export const fetchItems = async (cantity) => {
   try {
-    const response = await fetch(`${apiUrl}/items`);
-    const data = await response.json();
-    const itemsFile = data.data;
+    const response = await supabase.from("items").select();
+    const itemsFile = response.data;
     const items = [];
     const itemsLength = itemsFile.length;
     const indices = new Set();
