@@ -18,7 +18,6 @@ const PairCollection = () => {
 
   async function getItems() {
     const initialItems = await fetchItems(total);
-
     const shuffledItems = shuffleArray([...initialItems]);
 
     setItemListA(listInitialState(initialItems, "none"));

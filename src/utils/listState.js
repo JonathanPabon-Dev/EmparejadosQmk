@@ -1,7 +1,7 @@
 export const listInitialState = (list, initialState) => {
   let tempList = [];
   list.forEach((item) => {
-    tempList.push({ id: item._id, state: initialState });
+    tempList.push({ id: item.id, state: initialState });
   });
 
   return tempList;
