@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchItems } from "../utils/fetchItems";
+import { fetchItems, fetchParameters } from "../utils/fetch";
 import shuffleArray from "../utils/shuffleArray";
 import { listInitialState, listItemState } from "../utils/listState";
 import ColumnCollection from "./ColumnCollection";
 import Counter from "./Counter";
 
 const PairCollection = () => {
-  const total = 5;
+  const [total, setTotal] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [columnAitems, setColumnAitems] = useState([]);
   const [columnBitems, setColumnBitems] = useState([]);
@@ -25,6 +25,12 @@ const PairCollection = () => {
 
     setColumnAitems(initialItems);
     setColumnBitems(shuffledItems);
+  }
+
+  async function getCantPairs() {
+    const pairs = await fetchParameters();
+    const cantPairs = parseInt(pairs.value);
+    setTotal(cantPairs);
   }
 
   const handleReset = () => {
@@ -69,10 +75,14 @@ const PairCollection = () => {
   }, [idA, idB, itemListA, itemListB]);
 
   useEffect(() => {
-    if (!showRestart) {
+    getCantPairs();
+  }, []);
+
+  useEffect(() => {
+    if (total > 0 && !showRestart) {
       getItems();
     }
-  }, [showRestart]);
+  }, [showRestart, total]);
 
   useEffect(() => {
     if (idA && idB) {

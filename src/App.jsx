@@ -1,5 +1,6 @@
 import PairCollection from "./components/PairCollection";
 import ScienceImg from "./assets/alien_science.svg";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
       >
         !
       </button>
+      <ToastContainer theme="dark" />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import supabase from "../supabase/client";
+import { toast } from "react-toastify";
 
 export const fetchItems = async (cantity) => {
   try {
@@ -8,6 +9,9 @@ export const fetchItems = async (cantity) => {
     const itemsLength = itemsFile.length;
     const indices = new Set();
     if (cantity > itemsLength) {
+      toast.error(
+        "No hay suficientes ítems. Por favor parametrice una cantidad menor de parejas.",
+      );
       throw new Error("Not enough items");
     }
     while (items.length < cantity) {
@@ -18,6 +22,18 @@ export const fetchItems = async (cantity) => {
       }
     }
     return items;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchParameters = async () => {
+  try {
+    const response = await supabase
+      .from("parameters")
+      .select()
+      .eq("name", "cantParejas");
+    return response.data[0];
   } catch (error) {
     console.log(error);
   }
