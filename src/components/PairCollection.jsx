@@ -29,7 +29,7 @@ const PairCollection = () => {
   }, [total]);
 
   async function getCantPairs() {
-    const pairs = await fetchParameters();
+    const pairs = await fetchParameters("cantParejas");
     const cantPairs = parseInt(pairs.value);
     setTotal(cantPairs);
   }

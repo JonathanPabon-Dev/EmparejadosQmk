@@ -3,7 +3,10 @@ import { toast } from "react-toastify";
 
 export const fetchItems = async (cantity) => {
   try {
-    const response = await supabase.from("items").select();
+    const topic = await fetchParameters("tema");
+    const response = topic.value
+      ? await supabase.from("items").select().eq("topic", topic.value)
+      : await supabase.from("items").select();
     const itemsFile = response.data;
     const items = [];
     const itemsLength = itemsFile.length;
@@ -23,18 +26,18 @@ export const fetchItems = async (cantity) => {
     }
     return items;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
-export const fetchParameters = async () => {
+export const fetchParameters = async (parameter) => {
   try {
     const response = await supabase
       .from("parameters")
       .select()
-      .eq("name", "cantParejas");
+      .eq("name", parameter);
     return response.data[0];
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
