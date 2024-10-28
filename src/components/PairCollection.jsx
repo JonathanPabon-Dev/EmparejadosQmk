@@ -8,6 +8,7 @@ import Counter from "./Counter";
 const PairCollection = () => {
   const [total, setTotal] = useState(0);
   const [correct, setCorrect] = useState(0);
+  const [paired, setPaired] = useState(0);
   const [columnAitems, setColumnAitems] = useState([]);
   const [columnBitems, setColumnBitems] = useState([]);
   const [idA, setIdA] = useState(null);
@@ -16,7 +17,7 @@ const PairCollection = () => {
   const [itemListB, setItemListB] = useState([]);
   const [showRestart, setShowRestart] = useState(false);
 
-  async function getItems() {
+  const getItems = useCallback(async () => {
     const initialItems = await fetchItems(total);
     const shuffledItems = shuffleArray([...initialItems]);
 
@@ -25,7 +26,7 @@ const PairCollection = () => {
 
     setColumnAitems(initialItems);
     setColumnBitems(shuffledItems);
-  }
+  }, [total]);
 
   async function getCantPairs() {
     const pairs = await fetchParameters();
@@ -69,10 +70,11 @@ const PairCollection = () => {
       setItemListA(listItemState(itemListA, idA, "incorrect"));
       setItemListB(listItemState(itemListB, idB, "incorrect"));
     }
-    setShowRestart(true);
+    setPaired(paired + 1);
+
     setIdA(null);
     setIdB(null);
-  }, [idA, idB, itemListA, itemListB]);
+  }, [idA, idB, itemListA, itemListB, paired]);
 
   useEffect(() => {
     getCantPairs();
@@ -82,13 +84,19 @@ const PairCollection = () => {
     if (total > 0 && !showRestart) {
       getItems();
     }
-  }, [showRestart, total]);
+  }, [total, showRestart, getItems]);
 
   useEffect(() => {
     if (idA && idB) {
       compareIds(idA, idB);
     }
   }, [idA, idB, compareIds]);
+
+  useEffect(() => {
+    if (paired === total && total > 0) {
+      setShowRestart(true);
+    }
+  }, [paired, total]);
 
   return (
     <>

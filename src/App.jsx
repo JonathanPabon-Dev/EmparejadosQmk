@@ -1,6 +1,7 @@
 import PairCollection from "./components/PairCollection";
 import ScienceImg from "./assets/alien_science.svg";
 import { ToastContainer } from "react-toastify";
+import { getDate } from "./utils/utils";
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
           }}
         />
         <h1 className="text-center text-4xl font-bold">Emparejados</h1>
+        <h2 className="mt-2 text-xl font-semibold text-blue-600">
+          {getDate()}
+        </h2>
         <PairCollection />
       </div>
       <button
