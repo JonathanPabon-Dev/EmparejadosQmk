@@ -100,8 +100,18 @@ const PairCollection = () => {
 
   return (
     <>
+      {showRestart && (
+        <div className="flex w-full justify-center">
+          <button
+            className="mt-3 w-fit rounded-lg bg-blue-500 px-3 py-2 text-white hover:bg-blue-600"
+            onClick={handleReset}
+          >
+            Reiniciar
+          </button>
+        </div>
+      )}
       <Counter correct={correct} total={total} />
-      <div className="container mt-5 flex w-[60%] justify-between gap-20">
+      <div className="mt-5 flex gap-5 overflow-x-auto sm:w-full md:justify-center md:gap-10">
         <ColumnCollection
           itemsList={columnAitems}
           onSelect={handleSelectA}
@@ -114,12 +124,6 @@ const PairCollection = () => {
           itemStateList={itemListB}
         />
       </div>
-      <button
-        className={`mt-3 rounded-lg bg-blue-500 px-3 py-2 text-white hover:bg-blue-600 ${showRestart ? "block" : "hidden"}`}
-        onClick={handleReset}
-      >
-        Reiniciar
-      </button>
     </>
   );
 };

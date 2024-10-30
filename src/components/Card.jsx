@@ -15,7 +15,7 @@ const Card = ({ itemId, itemState, onSelect, children }) => {
 
   return (
     <div
-      className={`cursor-pointer rounded-xl border-2 w-80 h-28 p-3 flex items-center justify-center hover:border-sky-200 ${
+      className={`flex h-32 w-52 cursor-pointer items-center justify-center rounded-xl border-2 p-3 hover:border-sky-200 md:w-80 ${
         state === "selected"
           ? "border-sky-500 bg-sky-500 text-white"
           : state === "correct"
@@ -26,7 +26,7 @@ const Card = ({ itemId, itemState, onSelect, children }) => {
       } `}
       onClick={handleClick}
     >
-      <span className="text-center max-h-full overflow-y-auto">{children}</span>
+      <span className="max-h-full overflow-y-auto text-center">{children}</span>
     </div>
   );
 };

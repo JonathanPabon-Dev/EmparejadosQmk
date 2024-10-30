@@ -1,14 +1,15 @@
 import PairCollection from "./components/PairCollection";
 import ScienceImg from "./assets/alien_science.svg";
+import DateTime from "./components/DateTime";
+
 import { ToastContainer } from "react-toastify";
-import { getDate } from "./utils/utils";
 
 const App = () => {
   return (
     <>
-      <div className="container relative mx-auto flex min-h-screen flex-col items-center py-16 text-slate-600">
+      <div className="relative flex min-h-screen w-full flex-col px-5 py-16 text-slate-600">
         <div
-          className="absolute left-0 top-0 -z-50 h-full w-full"
+          className="absolute left-0 top-0 -z-50 size-full"
           style={{
             backgroundImage: `url(${ScienceImg})`,
             backgroundSize: "contain",
@@ -18,9 +19,7 @@ const App = () => {
           }}
         />
         <h1 className="text-center text-4xl font-bold">Emparejados</h1>
-        <h2 className="mt-2 text-xl font-semibold text-blue-600">
-          {getDate()}
-        </h2>
+        <DateTime />
         <PairCollection />
       </div>
       <button
