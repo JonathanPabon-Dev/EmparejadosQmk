@@ -1,8 +1,16 @@
-# React + Vite
+# Emparejados
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Emparejados es un proyecto simple para la enseñanza/aprendizaje de diferentes temáticas jugando.
+Consiste en relacionar los ítems de la columna izquierda con su equivalente del lado derecho.
 
-Currently, two official plugins are available:
+## Estimaciones
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Base de datos
+
+#### Parametrización
+
+En la tabla parameters se tiene un registro con valor "tema" en la columna name. En el campo "value" se parametriza el tema para el cual se quiere jugar.
+
+#### Ítems
+
+En la tabla items, se registran las opciones de valor en los campos "value1" y "value2". En el campo "topic" se parametriza el valor del tema en el cual clasifican los ítems.
