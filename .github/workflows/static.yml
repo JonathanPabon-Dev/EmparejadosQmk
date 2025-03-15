@@ -2,6 +2,10 @@
 name: Deploy static content to Pages
 
 on:
+  # 🕘 Runs at 9:00 AM every Monday and Thursday
+  schedule:
+    - cron: "0 0 * * 1,4"
+  
   # ⚙️ Runs on pushes targeting the default branch
   push:
     branches: ['main']
@@ -53,3 +57,15 @@ jobs:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  keep-supabase-active:
+    runs-on: ubuntu-latest
+    env:
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+    steps:
+      - name: Make a request to Supabase
+        run: |
+          curl -X GET "$VITE_SUPABASE_URL/rest/v1/items" \
+          -H "Authorization: Bearer $VITE_SUPABASE_ANON_KEY" \
+          -H "Content-Type: application/json"
